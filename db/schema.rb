@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_01_14_191727) do
   create_table "blends", force: :cascade do |t|
     t.integer "wine_id"
     t.integer "strain_id"
-    t.integer "concentration"
+    t.integer "concentration", default: 50
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["strain_id"], name: "index_blends_on_strain_id"

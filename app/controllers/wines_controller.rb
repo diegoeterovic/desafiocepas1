@@ -27,10 +27,6 @@ class WinesController < ApplicationController
   def create
     # crear vino con nombre
     @wine = Wine.new(wine_params)
-    puts params[:blends]
-    isnofn
-    
-    
 
     respond_to do |format|
       if @wine.save
@@ -77,7 +73,7 @@ class WinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wine_params
-      params.require(:wine).permit(:name, blends:[ :strain_id, :concentration])
+      params.require(:wine).permit(:name, {strain_ids:[]})
     end
 
 end
