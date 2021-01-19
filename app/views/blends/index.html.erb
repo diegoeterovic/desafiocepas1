@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Blends</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blends.each do |blend| %>
+      <tr>
+        <td><%= blend.wine.name %></td>
+        <td><%= blend.strain.name %></td>
+        <td><%= blend.concentration %></td>
+        <td><%= link_to 'Show', blend %></td>
+        <td><%= link_to 'Edit', edit_blend_path(blend) %></td>
+        <td><%= link_to 'Destroy', blend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blend', new_blend_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @wine.name %>
+</p>
+
+<table>
+
+
+  <% @wine.blends.each do |blend| %>
+    <tr>
+      <th><%= blend.strain.name %></th>
+      <th><%= blend.concentration %></th>
+    </tr>
+  <% end %>
+
+
+
+</table>
+
+</br>
+
+<%= link_to 'Edit', edit_wine_path(@wine) %> |
+<%= link_to 'Back', wines_path %>

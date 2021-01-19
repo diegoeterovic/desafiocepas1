@@ -1,0 +1,34 @@
+<%= form_for @blend do |form| %>
+  <% if blend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(blend.errors.count, "error") %> prohibited this blend from being saved:</h2>
+
+      <ul>
+      <% blend.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+
+  <div class="field">
+  <%= form.label :strains %>
+    <%= form.collection_check_boxes(:strain_id, Strain.all, :id, :name) do |strain| %>
+      <%= strain.label class: "label-checkbox" do %>
+        <%= strain.check_box  + strain.text%>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field"> 
+    <%= form.label :concentration %>
+    <%= form.text_field :concentration %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
