@@ -8,6 +8,7 @@
       <th>Name</th>
       <th>Strain</th>
       <th>Concentration</th>
+      <th>Grade</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,12 +23,13 @@
         <td><ul> <% wine.blends.each do |blend| %>
         <li><%= blend.concentration %></li>
         <% end %>
-        
-        
         </ul></td>
-        <td><%= link_to 'Show', wine %></td>
-        <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-        <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>NOTA</td>
+        <% if current_user.admin == true %>
+          <td><%= link_to 'Show', wine %></td>
+          <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
+          <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

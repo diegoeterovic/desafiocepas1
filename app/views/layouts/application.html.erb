@@ -10,9 +10,22 @@
   </head>
 
   <body>
-    <%= link_to  "Wines", wines_path %>
-    <%= link_to  "Strains", strains_path %>
-    <%= link_to  "Blends", blends_path %>
+
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_session_path(:user), :method => :delete %>
+        <% if current_user.admin == true %>
+      <%= link_to  "Wines", wines_path %>
+      <%= link_to  "Strains", strains_path %>
+      <%= link_to  "Blends", blends_path %>
+      <%= link_to  "Reviews", reviews_path %>
+      <%= link_to  "Oenologist", oenologists_path %>
+      
+
+      
+    <% end %>
+    <% else %>
+      <%= link_to  "Inicar",  new_user_session_path  %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,6 +1,6 @@
 class BlendsController < ApplicationController
   before_action :set_blend, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /blends
   # GET /blends.json
   def index

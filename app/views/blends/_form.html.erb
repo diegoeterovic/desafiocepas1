@@ -13,7 +13,7 @@
   
 
   <div class="field">
-  <%= form.label :strains %>
+    <%= form.label :strains %>
     <%= form.collection_check_boxes(:strain_id, Strain.all, :id, :name) do |strain| %>
       <%= strain.label class: "label-checkbox" do %>
         <%= strain.check_box  + strain.text%>
